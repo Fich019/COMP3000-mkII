@@ -7,7 +7,7 @@ This repo will contain the projects files for my aim trainer designed and built 
     <img src="https://i.imgur.com/PS1CIG1.gif" width="310" height="180" />
     <img src="https://i.imgur.com/3DcjJXf.gif" width="310" height="180" />
     <img src="https://i.imgur.com/Zoc2Pfc.gif" width="310" height="180" />
-    <img src="https://i.imgur.com/LmUblHd.gif" width="310" height="180" />
+    <img src="https://i.imgur.com/PcqCSAF.gif" width="310" height="180" />
 </p>
 
 ## Technology Used
