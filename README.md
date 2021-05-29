@@ -22,6 +22,24 @@ This repo will contain the projects files for my aim trainer designed and built 
  My project is a aim trainer built inside of OPENGL. I started with a camera and player movement script from learnOpenGL and a shader and built up from there. I started by creating walls, a floor and a ceiling to enclose the player in a box. From there I stopped the player leaving said box so they would remain in the playable area. There is a different coloured wall on the back which draws the players eyes to it. This is the main wall where the targets are located. The player can then aim at the targets with the crosshair provided on screen and use left click on their mouse to "shoot" at them and destroy them. The target is then randomly placed somewhere else on the wall. I got the idea from playing first person games myself, I want somewhere to warm up my aim and to practice before playing. 
 
 
-# Link to developer walkthough and images
+## The variables and what they mean
+This is a brief description of each of the variables that you can change and tweak and what they correlate to. This will help give a better understanding of how everything works together.
+
+* **Width:** 
+* **Height:** 
+* **Scale:** 
+* **Perlin Gird Step Size X:** 
+* **Perlin Gird Step Size Y:** 
+* **Prefab:** 
+* **Street Vert:**
+* **Street Hor:**
+* **Street Cross:**
+* **Lamp:**
+* **Carspawner:**
+* **Player Spawner:**
+* **Objects:**       
+
+
+## Link to developer walkthough and images
 
 [**Youtube video link of developer walkthrough**](https://www.youtube.com/watch?v=RzFBgkkDAlQ&feature=youtu.be)
