@@ -23,8 +23,8 @@ public class Procgen : MonoBehaviour
     public int perlinGridStepSizeY;
 
 
-    public bool visualizeObjects = false;
-    public GameObject[] Prefabs;
+    //public bool visualizeObjects = false;
+    //public GameObject[] Prefabs;
     public GameObject Prefab;
     public GameObject streetVert;
     public GameObject streetHor;
@@ -34,10 +34,10 @@ public class Procgen : MonoBehaviour
     public GameObject playerSpawner;
     public GameObject objects;
 
-    public int GlobX; //For gif generation version
-    public int GlobY;
+    private int GlobX; //For gif generation version
+    private int GlobY;
 
-    public RawImage visulizationUI;
+    //public RawImage visulizationUI;
     private Texture2D noiseTexture;
 
     public int[,] citygrid;
@@ -88,19 +88,6 @@ public class Procgen : MonoBehaviour
         }
     }
 
-
-    public void Generate()
-    {
-        GenerateTexture();
-        if (visualizeObjects)
-        {
-            
-            VisualizePrefabs();
-        }
-
-    }
-
-
     void GenerateTexture()
     {
         noiseTexture = new Texture2D(width, height);
@@ -116,7 +103,7 @@ public class Procgen : MonoBehaviour
         }
 
         noiseTexture.Apply();
-        visulizationUI.texture = noiseTexture;
+        //visulizationUI.texture = noiseTexture;
 
 
     }
@@ -245,7 +232,7 @@ public class Procgen : MonoBehaviour
                     //    if (i == 1) { GameObject spawn2 = Instantiate(Prefabs[ranSelect], (new Vector3(x, Random.Range(1,3), y) - new Vector3(0,0.5f,0)) + transform.position, transform.rotation); spawn2.transform.SetParent(objectParent.transform); }
                     //}
 
-                    int ranSelect = Random.Range(0, Prefabs.Length);
+                    //int ranSelect = Random.Range(0, Prefabs.Length);
                     float sample = SampleStepped(x, y);
 
                     GameObject spawn = Instantiate(Prefab, new Vector3(x + 1f, sample * heightScale - 6f, y + 1f) + transform.position, transform.rotation);
@@ -383,7 +370,7 @@ public class Procgen : MonoBehaviour
                     //    if (i == 1) { GameObject spawn2 = Instantiate(Prefabs[ranSelect], (new Vector3(x, Random.Range(1,3), y) - new Vector3(0,0.5f,0)) + transform.position, transform.rotation); spawn2.transform.SetParent(objectParent.transform); }
                     //}
 
-                    int ranSelect = Random.Range(0, Prefabs.Length);
+                    //int ranSelect = Random.Range(0, Prefabs.Length);
                     float sample = SampleStepped(x, y);
 
                     GameObject spawn = Instantiate(Prefab, new Vector3(x + 1f, sample * heightScale - 6f, y + 1f) + transform.position, transform.rotation);
