@@ -3,11 +3,11 @@ This is the repo readme for coursework 2 of COMP3016.
 This repo will contain the projects files for my aim trainer designed and built in openGL.
 
 <p align="center">
-    <img src="https://i.imgur.com/54NxN7H.gif" width="280" height="180" />
-    <img src="https://i.imgur.com/PS1CIG1.gif" width="280" height="180" />
-    <img src="https://i.imgur.com/3DcjJXf.gif" width="280" height="180" />
-    <img src="https://i.imgur.com/Zoc2Pfc.gif" width="280" height="180" />
-    <img src="https://i.imgur.com/PcqCSAF.gif" width="280" height="180" />
+    <img src="https://i.imgur.com/54NxN7H.gif" width="260" height="180" />
+    <img src="https://i.imgur.com/PS1CIG1.gif" width="260" height="180" />
+    <img src="https://i.imgur.com/3DcjJXf.gif" width="260" height="180" />
+    <img src="https://i.imgur.com/Zoc2Pfc.gif" width="260" height="180" />
+    <img src="https://i.imgur.com/PcqCSAF.gif" width="260" height="180" />
 </p>
 
 ## Technology Used
