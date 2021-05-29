@@ -19,14 +19,7 @@ This repo will contain the projects files for my aim trainer designed and built 
  ## How to use it
 
 
+
 # Link to developer walkthough and images
 
 [**Youtube video link of developer walkthrough**](https://www.youtube.com/watch?v=RzFBgkkDAlQ&feature=youtu.be)
-
-![Screenshot of gameplay 1](https://i.imgur.com/zzkd28U.png)
-![Screenshot of gameplay 2](https://i.imgur.com/jDEsMtC.png)
-![Screenshot of gameplay 3](https://i.imgur.com/bORIuOC.png)
-  
-![Gif of gameplay 1](https://i.imgur.com/yH5TuYm.gif)
-![Gif of gameplay 2](https://i.imgur.com/uubzoSb.gif)
-![Gif of gameplay 3](https://i.imgur.com/YRwTfUN.gif)
