@@ -51,5 +51,13 @@ This is a brief description of each of the variables that you can change and twe
 * **Objects:** These are the objects that the player has to collect in order to complete the game, not nessisary for the city generated but again like the lamp, can be used to help bring other objects into the city or a game function etc.
   
 ## Link to developer walkthough and images
-
+  Here is link to a YouTube video where I go over the code in a bit more depth to help understand the finer mechanics, controls and usage of this program: 
 [**Youtube video link of developer walkthrough**](https://www.youtube.com/watch?v=RzFBgkkDAlQ&feature=youtu.be)
+
+## Sumamry and Game link
+Download the code and have an experiment with it using the help provided and the trial and error with editing the code. If you want an example of how this program can be used, I created a simple game as a proof of concept ([**Link here**](https://fich019.itch.io/pro-gen-city-explorer)) but you don't have to stick to it. Take it and make it your own!
+Thanks for downloading and reading, have fun,  
+  
+Zack  
+
+
