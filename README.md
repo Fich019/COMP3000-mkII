@@ -54,7 +54,7 @@ This is a brief description of each of the variables that you can change and twe
 * **Objects:** These are the objects that the player has to collect in order to complete the game, not nessisary for the city generated but again like the lamp, can be used to help bring other objects into the city or a game function etc.
   
 ## Link to developer walkthough and images
-  Here is link to a YouTube video where I go over the code in a bit more depth to help understand the finer mechanics, controls and usage of this program: 
+  Here is link to a YouTube video where I go over the code in a bit more depth to help understand the finer mechanics, controls, and usage of this program: 
 [**Youtube video link of developer walkthrough**](https://www.youtube.com/watch?v=RzFBgkkDAlQ&feature=youtu.be)
 
 ## Sumamry and Game link
