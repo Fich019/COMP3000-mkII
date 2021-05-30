@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://i.imgur.com/CixzxkB.png" width="1000" height="250" />
+    <img src="https://i.imgur.com/CixzxkB.png" width="1000" height="200" />
 </p>
 
 This is the repo readme for the project "Pro-Gen" City Builder, a procedurally generated city builder.
