@@ -30,24 +30,25 @@ This repo will contain the projects files for Pro-Gen as well as a tutorial on h
 
  ## How to use it
 <img src="https://i.imgur.com/SOWFvXD.png" width="450" height="280" align="left"/> 
- My project is a aim trainer built inside of OPENGL. I started with a camera and player movement script from learnOpenGL and a shader and built up from there. I started by creating walls, a floor and a ceiling to enclose the player in a box. From there I stopped the player leaving said box so they would remain in the playable area. There is a different coloured wall on the back which draws the players eyes to it. This is the main wall where the targets are located. The player can then aim at the targets with the crosshair provided on screen and use left click on their mouse to "shoot" at them and destroy them. The target is then randomly placed somewhere else on the wall. I got the idea from playing first person games myself, I want somewhere to warm up my aim and to practice before playing. 
+ The image you see to the left is the primary way that you can tweak and edit how the city is generated. Each of the variables will be individually described below to help understand what each of them does but for the high-level description the first 5 determine the size of the Perlin noise and how it directly correlates to the scene. Generally, the first 2 can be left untouched as they determine the size of the texture for the Perlin noise and the scale of it (how far zoomed in it is) is the one you want to change. This variable can make the transitions between colours more fluid or much harsher. This will affect how the height of the buildings look.
+ The latter 8 variables are the prefabs for the objects used to construct the city. If you want to change the buildings or the streets for other models this is where you would do it. The car spawner and player spawner would be best tweaked in the code as they are a collection of objects grouped together rather than one model.
   
 ## The variables and what they mean
 This is a brief description of each of the variables that you can change and tweak and what they correlate to. This will help give a better understanding of how everything works together.
 
-* **Width:** 
-* **Height:** 
-* **Scale:** 
-* **Perlin Gird Step Size X:** 
-* **Perlin Gird Step Size Y:** 
-* **Prefab:** 
-* **Street Vert:**
-* **Street Hor:**
-* **Street Cross:**
-* **Lamp:**
-* **Carspawner:**
-* **Player Spawner:**
-* **Objects:**       
+* **Width:** This variable determines the width of the Perlin noise texture.
+* **Height:** This variable determines the height of the Perlin noise texture.
+* **Scale:** This variable determines the scale or zoom level of the Perlin noise texture. Lower value more zoomed out, smoother transition. Higher value more zoomed in, harsher              transition. 
+* **Perlin Gird Step Size X:** The horizontal size of which the Perlin noise texture will apply to the scene in unity.
+* **Perlin Gird Step Size Y:** The vertical size of which the Perlin noise texture will apply to the scene in unity.
+* **Prefab:** The building prefab. Have to be scaled to the size of 1 unity square otherwise collisions will occur.
+* **Street Vert:** The vertical street prefab.
+* **Street Hor:** The horizontal street prefab.
+* **Street Cross:** The crossroads street prefab.
+* **Lamp:** The lamp prefab, this code can also be used to add other objects to the street such as bus stops or trash cans etc.
+* **Carspawner:** The car spawner prefab. This also blocks the user from being able to walk off the edge of the city (works in conjunction with the boundaries also defined).
+* **Player Spawner:** The player spawner. This is attached to on of the street prefabs and is placed on the first horizontal street segment placed in the scene.
+* **Objects:** These are the objects that the player has to collect in order to complete the game, not nessisary for the city generated but again like the lamp, can be used to help bring other objects into the city or a game function etc.
   
 ## Link to developer walkthough and images
 
