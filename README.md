@@ -1,4 +1,7 @@
-# Pro-Gen City Builder
+<p align="center">
+    <img src="https://i.imgur.com/CixzxkB.png" width="1000" height="250" />
+</p>
+
 This is the repo readme for the project "Pro-Gen" City Builder, a procedurally generated city builder.
 This repo will contain the projects files for Pro-Gen as well as a tutorial on how to use it for yourself and how you can tweak it if required.
 
