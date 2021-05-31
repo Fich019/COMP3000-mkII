@@ -55,7 +55,7 @@ This is a brief description of each of the variables that you can change and twe
   
 ## Link to developer walkthough and images
   Here is link to a YouTube video where I go over the code in a bit more depth to help understand the finer mechanics, controls, and usage of this program: 
-[**Youtube video link of developer walkthrough**](https://www.youtube.com/watch?v=RzFBgkkDAlQ&feature=youtu.be)
+[**Youtube video link of developer walkthrough**](https://youtu.be/2YF7OOan8tI)
 
 ## Sumamry and Game link
 Download the code and have an experiment with it using the help provided and the trial and error with editing the code. If you want an example of how this program can be used, I created a simple game as a proof of concept ([**Link here**](https://fich019.itch.io/pro-gen-city-explorer)) but you don't have to stick to it. Take it and make it your own!
