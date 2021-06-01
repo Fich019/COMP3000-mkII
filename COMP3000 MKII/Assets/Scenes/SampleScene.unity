@@ -2523,10 +2523,8 @@ MonoBehaviour:
   scale: 5
   perlinGridStepSizeX: 25
   perlinGridStepSizeY: 25
-  visualizeObjects: 0
-  Prefabs:
-  - {fileID: 0}
-  Prefab: {fileID: 8659150552779366695, guid: f93cd9043a70791468b9b6ca787fa722, type: 3}
+  Building: {fileID: 8659150552779366695, guid: f93cd9043a70791468b9b6ca787fa722,
+    type: 3}
   streetVert: {fileID: 7818530700571174956, guid: 2854d21f363bfb644bda8b73f458517d,
     type: 3}
   streetHor: {fileID: 8425999551529987817, guid: 69c1685abebc59e4796a918323978929,
@@ -2539,9 +2537,6 @@ MonoBehaviour:
   playerSpawner: {fileID: 8798823485395808437, guid: 6af669ca03aa356478455da2e3248bd1,
     type: 3}
   objects: {fileID: 3685042054663537054, guid: 013be2fd2c332654993c7c94e1e7d7ea, type: 3}
-  GlobX: 0
-  GlobY: 0
-  visulizationUI: {fileID: 373231915}
   numOfStreets: 0
   numOfBuildingsBet: 0
 --- !u!64 &1744397551

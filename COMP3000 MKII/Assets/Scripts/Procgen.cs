@@ -25,7 +25,7 @@ public class Procgen : MonoBehaviour
 
     //public bool visualizeObjects = false;
     //public GameObject[] Prefabs;
-    public GameObject Prefab;
+    public GameObject Building; //Was called Prefab in GitHub image
     public GameObject streetVert;
     public GameObject streetHor;
     public GameObject streetCross;
@@ -45,17 +45,22 @@ public class Procgen : MonoBehaviour
     [SerializeField]
     private int numOfStreets, numOfBuildingsBet;
 
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
 
-        citygrid = new int[perlinGridStepSizeX, perlinGridStepSizeY];
+        citygrid = new int[perlinGridStepSizeX, perlinGridStepSizeY]; //Instantiate the 2D array with the grid step size
 
         
-        offestX = Random.Range(0, 99999);
+        offestX = Random.Range(0, 99999); //Random offest tha gets applied to the Perlin noise
         offsetY = Random.Range(0, 99999);
 
-        heightScale = Random.Range(2, 6);
+        heightScale = Random.Range(2, 6); //Random Height scale that gets added to the height of the buildings when they are placed
 
         GenerateTexture();
 
@@ -68,6 +73,7 @@ public class Procgen : MonoBehaviour
         VisualizePrefabs();
 
     }
+
 
     // Update is called once per frame
     void Update()
@@ -88,6 +94,10 @@ public class Procgen : MonoBehaviour
         }
     }
 
+
+    //This method creates the Perlin noise texture with the help from other methods.
+    //What this method does is applies the calculated colour from that method to
+    //each of the pixels in the 2D texture that is created.
     void GenerateTexture()
     {
         noiseTexture = new Texture2D(width, height);
@@ -109,6 +119,13 @@ public class Procgen : MonoBehaviour
     }
 
 
+    //This method takes the x and y coordinate passed from the generate
+    //texture function and converts them into a float by dividing them
+    //by the width of the texture times the scale or zoom of the texture
+    // and adding the random offset. It does this for the y as well then
+    //uses both to get a sample from the PerlinNoise function.
+    //This float is then used to create a colour and that is then
+    //returned and used in the GenerateTexture() function.
     Color CalculateColour(int x, int y)
     {
         float xCoord = (float)x / width * scale + offestX;
@@ -121,6 +138,12 @@ public class Procgen : MonoBehaviour
     }
 
 
+
+    //This is the primary method of the script. This interates through
+    //the grid step size and checks each position against the 2D array.
+    //Depending on what value is present differnent objects are spawned
+    //and if it fails all of the checks then it has to be a building so 
+    //it spawns one in.
     void VisualizePrefabs()
     {
         GameObject objectParent = new GameObject("ObjectParent");
@@ -131,12 +154,10 @@ public class Procgen : MonoBehaviour
             for (int y = 0; y < perlinGridStepSizeY -1; y++)
             {
 
-                //ExecuteAfterTime();
-                //System.Threading.Thread.Sleep(3000);
                 int ranObjects = Random.Range(0,20);
 
-                // if (citygrid[x,] )
-                if (citygrid[x, y] == -1)
+
+                if (citygrid[x, y] == -1) //Spawn Street Horizontal
                 {
                     //spawn street here
                     GameObject spawnH = Instantiate(streetHor, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, streetHor.transform.rotation);
@@ -145,20 +166,13 @@ public class Procgen : MonoBehaviour
                     GameObject spawnS = Instantiate(lamp, new Vector3(x + 0.74f, 0.6f, y + 1f) + transform.position, lamp.transform.rotation);
                     spawnS.transform.SetParent(objectParent.transform);
 
-                    if (ranObjects == 1)
+                    if (ranObjects == 1) //If randObjects is 1, spawn collectable item for player
                     {
                         GameObject spawnO = Instantiate(objects, new Vector3(x + 1f, Random.Range(3, 7), y + 1f) + transform.position, objects.transform.rotation);
                         spawnO.transform.SetParent(objectParent.transform);
                     }
-                    //if (count == 3)
-                    //{
-                    //    GameObject spawnS = Instantiate(lamp, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, lamp.transform.rotation);
-                    //    spawnS.transform.SetParent(objectParent.transform);
-                    //    count = 0;
-                    //}
-                    //Debug.Log("pp");
                 }
-                else if (citygrid[x, y] == -2)
+                else if (citygrid[x, y] == -2) //Spawn Street Vertical
                 {
                     //spawn street here
                     GameObject spawnV = Instantiate(streetVert, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, streetVert.transform.rotation);
@@ -167,87 +181,58 @@ public class Procgen : MonoBehaviour
                     GameObject spawnS = Instantiate(lamp, new Vector3(x + 1f, 0.6f, y + 1.3f) + transform.position, transform.rotation * Quaternion.Euler(0f, 90f, 0f));
                     spawnS.transform.SetParent(objectParent.transform);
 
-                    if (ranObjects == 1)
+                    if (ranObjects == 1) //If randObjects is 1, spawn collectable item for player
                     {
                         GameObject spawnO = Instantiate(objects, new Vector3(x + 1f, Random.Range(3, 7), y + 1f) + transform.position, objects.transform.rotation);
                         spawnO.transform.SetParent(objectParent.transform);
                     }
-                    //Debug.Log("pp");
                 }
-                else if (citygrid[x, y] == -3)
+                else if (citygrid[x, y] == -3) //Spawn Street Crossroad
                 {
                     //spawn street here
                     GameObject spawnC = Instantiate(streetCross, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, streetCross.transform.rotation);
                     spawnC.transform.SetParent(objectParent.transform);
 
-                    if (ranObjects == 1)
+                    if (ranObjects == 1) //If randObjects is 1, spawn collectable item for player
                     {
                         GameObject spawnO = Instantiate(objects, new Vector3(x + 1f, Random.Range(3, 7), y + 1f) + transform.position, objects.transform.rotation);
                         spawnO.transform.SetParent(objectParent.transform);
                     }
-                    //Debug.Log("pp");
                 }
-                else if (citygrid[x, y] == -6)
+                else if (citygrid[x, y] == -6) //Car Spawner, start of array, horizontal
                 {
                     GameObject spawnS = Instantiate(carspawner, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, streetHor.transform.rotation);
                     spawnS.transform.SetParent(objectParent.transform);
                 }
-                else if (citygrid[x, y] == -7)
+                else if (citygrid[x, y] == -7) //Car Spawner, start of array, vertical
                 {
                     GameObject spawnS = Instantiate(carspawner, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, streetVert.transform.rotation * Quaternion.Euler(0f, 0f, 0f));
                     spawnS.transform.SetParent(objectParent.transform);
                 }
-                else if (citygrid[x, y] == -11)
+                else if (citygrid[x, y] == -11) //Car Spawner, end of array, horizontal
                 {
                     GameObject spawnS = Instantiate(carspawner, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, streetHor.transform.rotation * Quaternion.Euler(0f, 0f, 180f));
                     spawnS.transform.SetParent(objectParent.transform);
                 }
-                else if (citygrid[x, y] == -12)
+                else if (citygrid[x, y] == -12) //Car Spawner, end of array, vertical
                 {
                     GameObject spawnS = Instantiate(carspawner, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, streetVert.transform.rotation * Quaternion.Euler(0f, 0f, 180f));
                     spawnS.transform.SetParent(objectParent.transform);
                 }
-                else if (citygrid[x, y] == -9)
+                else if (citygrid[x, y] == -9) //Player Spawner
                 {
                     GameObject spawnV = Instantiate(playerSpawner, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, playerSpawner.transform.rotation);
                     spawnV.transform.SetParent(objectParent.transform);
                 }
-                //else if (citygrid[x, y] == -13)
-                //{
-                //    GameObject spawnS = Instantiate(carspawner, new Vector3(x + 1f, 0.6f, y + 1f) + transform.position, streetVert.transform.rotation * Quaternion.Euler(0f, 0f, 180f));
-                //    spawnS.transform.SetParent(objectParent.transform);
-                //}
-                else
+                else //Spawn building in nothing else.
                 {
-                    Color check = CalculateColour(x, y);
 
-                    //if (check.g < 0.4f)
-                    //{
-                    //    int ranSelect = Random.Range(0, Prefabs.Length);
-
-                    //    GameObject spawn = Instantiate(Prefab, new Vector3(x, SampleStepped(x,y) * heightScale, y) + transform.position, transform.rotation);
-                    //    int i = Random.Range(0, 20);
-
-                    //    spawn.transform.SetParent(objectParent.transform);
-                    //    if (i == 1) { GameObject spawn2 = Instantiate(Prefabs[ranSelect], (new Vector3(x, Random.Range(1,3), y) - new Vector3(0,0.5f,0)) + transform.position, transform.rotation); spawn2.transform.SetParent(objectParent.transform); }
-                    //}
-
-                    //int ranSelect = Random.Range(0, Prefabs.Length);
                     float sample = SampleStepped(x, y);
 
-                    GameObject spawn = Instantiate(Prefab, new Vector3(x + 1f, sample * heightScale - 6f, y + 1f) + transform.position, transform.rotation);
+                    GameObject spawn = Instantiate(Building, new Vector3(x + 1f, sample * heightScale - 6f, y + 1f) + transform.position, transform.rotation); //Applys Perlin noise to height of building as well as randomised height scale to add more variance
                     spawn.transform.SetParent(objectParent.transform);
                     int i = Random.Range(0, 40);
 
-                    //if (i == 1)
-                    //{
-                    //    GameObject spawn2 = Instantiate(Prefabs[ranSelect], (new Vector3(x, (sample * heightScale) + Random.Range(1, 3), y) - new Vector3(0, 0.5f, 0)) + transform.position, transform.rotation);
-                    //    spawn2.transform.SetParent(objectParent.transform);
-                    //}
-
-
-
-                    //Instantiate(spawn);
                 }
                 
                 
@@ -259,6 +244,7 @@ public class Procgen : MonoBehaviour
     }
 
 
+    //Used for creating gifs, ignore
     public void StepVisualizePrefabs(int x)
     {
         GameObject objectParent = new GameObject("ObjectParent");
@@ -373,7 +359,7 @@ public class Procgen : MonoBehaviour
                     //int ranSelect = Random.Range(0, Prefabs.Length);
                     float sample = SampleStepped(x, y);
 
-                    GameObject spawn = Instantiate(Prefab, new Vector3(x + 1f, sample * heightScale - 6f, y + 1f) + transform.position, transform.rotation);
+                    GameObject spawn = Instantiate(Building, new Vector3(x + 1f, sample * heightScale - 6f, y + 1f) + transform.position, transform.rotation);
                     spawn.transform.SetParent(objectParent.transform);
                     int i = Random.Range(0, 40);
 
@@ -402,10 +388,16 @@ public class Procgen : MonoBehaviour
     }
 
 
+    //Used to generate streets on the Y axis. It stores
+    //number of buildings between and keeps adding to it after
+    //each street is placed so that the next street can be placed
+    //correctly in the next position in the array. Sets the start
+    //of the street as a tunnel and the end as well as defining what 
+    //street it is.
     void GenerateStreetsY()
     {
         int r = numOfBuildingsBet;
-        //int y = 0;
+
         for (int x = 0; x < numOfStreets; x++)
         {
             citygrid[r, 0] += -5;
@@ -414,25 +406,10 @@ public class Procgen : MonoBehaviour
             {
                 citygrid[r, y] += -1;
 
-
-                //Debug.Log(citygrid[r, y]);
-                // r += 3;
-
-                //if ( x == 3)
-                //{
-                //    break;
-                //}
             }
 
             citygrid[r, perlinGridStepSizeY - 2] += -10;
             r += numOfBuildingsBet;
-
-            //while ( y < perlinGridStepSizeY)
-            //{
-            //    citygrid[r, y] = -1;
-
-            //    y++;
-            //}
 
 
         }
@@ -440,10 +417,12 @@ public class Procgen : MonoBehaviour
     }
 
 
+    //Does exactly the same as the GenerateStreetsY() but
+    //instead on the X axis.
     void GenerateStreetsX()
     {
         int r = numOfBuildingsBet;
-        //int y = 0;
+
         for (int y = 0; y < numOfStreets; y++)
         {
             citygrid[0, r] += -5;
@@ -452,25 +431,9 @@ public class Procgen : MonoBehaviour
             {
                 citygrid[x, r] += -2;
 
-                //Debug.Log(citygrid[x, r]);
-                // r += 3;
-
-                //if ( x == 3)
-                //{
-                //    break;
-                //}
             }
             citygrid[perlinGridStepSizeX -2, r] += -10;
             r += numOfBuildingsBet;
-
-            
-
-            //while ( y < perlinGridStepSizeY)
-            //{
-            //    citygrid[r, y] = -1;
-
-            //    y++;
-            //}
 
 
         }
@@ -478,6 +441,11 @@ public class Procgen : MonoBehaviour
     }
 
 
+    //Takes the x and y of the current position in the grid step 
+    //nested loop and converts them back to integers. These are
+    //then used to get the pixel at that position in the Perlin
+    //noise texture and returns a float. The float is then used
+    //when deciding the height of the buildings.
     public float SampleStepped(int x, int y)
     {
         int gridStepSizeX = Mathf.FloorToInt(width / perlinGridStepSizeX);
@@ -488,6 +456,15 @@ public class Procgen : MonoBehaviour
     }
 
 
+    //Creates a list to hold all of the factors of the grid 
+    //step size -1. Checks while i < grid step size if the value
+    //currently at i if divided by grid step size would equal 0.
+    //If it does then its a factor and gets added to the list.
+    //After looping through the step size, a random integer is
+    //chosen between the range of 1 and the step size -1. This
+    //is done to remove the factors of 1 and itself. The random
+    //select is used to get a factor from the list and then its 
+    //set as the number of streets at the start of the program.
     public int GetFactor()
     {
 
@@ -512,6 +489,9 @@ public class Procgen : MonoBehaviour
     }
 
 
+    //Divides the grid step size by the number of streets to find
+    //the correctly number of buildings to go between the streets
+    //so that it equals 0 when its finished.
     public int GetBuildingBetween()
     {
         int tempBuild = (perlinGridStepSizeX - 1) / numOfStreets;
