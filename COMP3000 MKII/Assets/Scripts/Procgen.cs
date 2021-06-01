@@ -12,19 +12,19 @@ public class Procgen : MonoBehaviour
     public int width = 256;
     public int height = 256;
 
-    public float scale;
 
+    public float scale;
     private float heightScale;
+
 
     private float offestX;
     private float offsetY;
+
 
     public int perlinGridStepSizeX;
     public int perlinGridStepSizeY;
 
 
-    //public bool visualizeObjects = false;
-    //public GameObject[] Prefabs;
     public GameObject Building; //Was called Prefab in GitHub image
     public GameObject streetVert;
     public GameObject streetHor;
@@ -34,13 +34,17 @@ public class Procgen : MonoBehaviour
     public GameObject playerSpawner;
     public GameObject objects;
 
+
     private int GlobX; //For gif generation version
     private int GlobY;
+
 
     //public RawImage visulizationUI;
     private Texture2D noiseTexture;
 
+
     public int[,] citygrid;
+
 
     [SerializeField]
     private int numOfStreets, numOfBuildingsBet;
