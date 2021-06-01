@@ -44,7 +44,7 @@ This is a brief description of each of the variables that you can change and twe
 * **Scale:** This variable determines the scale or zoom level of the Perlin noise texture. Lower value more zoomed out, smoother transition. Higher value more zoomed in, harsher              transition. 
 * **Perlin Gird Step Size X:** The horizontal size of which the Perlin noise texture will apply to the scene in unity.
 * **Perlin Gird Step Size Y:** The vertical size of which the Perlin noise texture will apply to the scene in unity.
-* **Prefab:** The building prefab. Have to be scaled to the size of 1 unity square otherwise collisions will occur.
+* **Prefab(Now called Building in code:** The building prefab. Have to be scaled to the size of 1 unity square otherwise collisions will occur.
 * **Street Vert:** The vertical street prefab.
 * **Street Hor:** The horizontal street prefab.
 * **Street Cross:** The crossroads street prefab.
